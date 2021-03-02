@@ -2,33 +2,32 @@
 #include <assert.h>
 #include "BatteryManagementConfig.h"
 
-int alartIfBatteryIsUnHealthy(float variable, BatteryManageConfig MinMaxMessage)
+int alertIfBatteryIsUnHealthy(float variable, BatteryManageConfig MinMaxMessage)
 {
 	if(variable < MinMaxMessage.min_range) 
 	{
-    printf("%s\n", MinMaxMessage.Alartmessage);
+    printf("%s\n", MinMaxMessage.Min_Alertmessage);
 	return HEALTH_NOT_OK;
 	}
-	else if(ariable > MinMaxMessage.max_range) 
+	else if(variable > MinMaxMessage.max_range) 
 	{
-    printf("%s\n", MinMaxMessage.Alartmessage);
+    printf("%s\n", MinMaxMessage.Max_Alertmessage);
 	return HEALTH_NOT_OK;
 	}
     return HEALTH_OK;
 
 }
 
-
 int batteryIsOk(float temperature, float soc, float chargeRate) 
 {
-	return 	alartIfBatteryIsUnHealthy(temperature, temperature_config) && \
-			alartIfBatteryIsUnHealthy(soc, soc_config) && \
-			alartIfBatteryIsUnHealthy(chargeRate, chargeRate_config);
+	return 	alertIfBatteryIsUnHealthy(temperature, temperature_config) && \
+			alertIfBatteryIsUnHealthy(soc, soc_config) && \
+			alertIfBatteryIsUnHealthy(chargeRate, chargeRate_config);
 }
 
 int main() {
-	
-  batteryIsOk(25, 70, 0.7);
+			temp,soc,charge rate, discharge voltage
+  batteryIsOk(25, 70, 0.7, );
   batteryIsOk(50, 85, 0);
   
 }
