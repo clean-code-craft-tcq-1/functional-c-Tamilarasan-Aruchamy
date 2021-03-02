@@ -4,12 +4,18 @@
 
 int alartIfBatteryIsUnHealthy(float variable, BatteryManageConfig MinMaxMessage)
 {
-	if(variable < MinMaxMessage.min_range || variable > MinMaxMessage.max_range) 
+	if(variable < MinMaxMessage.min_range) 
 	{
-			printf("%s\n", MinMaxMessage.Alartmessage);
-			return HEALTH_NOT_OK;
+    printf("%s\n", MinMaxMessage.Alartmessage);
+	return HEALTH_NOT_OK;
 	}
-	return HEALTH_OK;
+	else if(ariable > MinMaxMessage.max_range) 
+	{
+    printf("%s\n", MinMaxMessage.Alartmessage);
+	return HEALTH_NOT_OK;
+	}
+    return HEALTH_OK;
+
 }
 
 
