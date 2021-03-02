@@ -20,9 +20,9 @@ int alertIfBatteryIsUnHealthy(float MeasuredValue, BatteryManageConfig MinMaxMes
 
 int batteryIsOk(float temperature, float soc, float chargeRate) 
 {
-	return 	alertIfBatteryIsUnHealthy(temperature, temperature_config) && \
-			alertIfBatteryIsUnHealthy(soc, soc_config) && \
-			alertIfBatteryIsUnHealthy(chargeRate, chargeRate_config);
+	return 	(alertIfBatteryIsUnHealthy(temperature, temperature_config) & \
+			alertIfBatteryIsUnHealthy(soc, soc_config) & \
+			alertIfBatteryIsUnHealthy(chargeRate, chargeRate_config));
 			
 }
 
@@ -30,5 +30,6 @@ int main() {
 //temperature,State-of-Charge,charge rate
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 1));
+  assert(!batteryIsOk(-1, 15, -1));
   
 }
