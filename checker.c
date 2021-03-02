@@ -26,7 +26,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate)
 }
 
 int main() {
-			temp,soc,charge rate, discharge voltage
+//temp,soc,charge rate, discharge voltage
   batteryIsOk(25, 70, 0.7, );
   batteryIsOk(50, 85, 0);
   
