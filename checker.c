@@ -18,17 +18,17 @@ int alertIfBatteryIsUnHealthy(float MeasuredValue, BatteryManageConfig MinMaxMes
 
 }
 
-int batteryIsOk(float temperature, float soc, float chargeRate,float dischargeVolt) 
+int batteryIsOk(float temperature, float soc, float chargeRate) 
 {
 	return 	alertIfBatteryIsUnHealthy(temperature, temperature_config) && \
 			alertIfBatteryIsUnHealthy(soc, soc_config) && \
-			alertIfBatteryIsUnHealthy(chargeRate, chargeRate_config) && \
-			alertIfBatteryIsUnHealthy(dischargeVolt, discharge_volt_config);
+			alertIfBatteryIsUnHealthy(chargeRate, chargeRate_config);
+			
 }
 
 int main() {
-			//temperature,State-of-Charge,charge rate, Discharging voltage control
-  assert(batteryIsOk(25, 70, 0.7, 4));
-  assert(!batteryIsOk(50, 85, 0, 4));
+//temperature,State-of-Charge,charge rate
+  assert(batteryIsOk(25, 70, 0.7));
+  assert(!batteryIsOk(50, 85, 1));
   
 }
